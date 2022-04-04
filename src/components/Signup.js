@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Signup = () => {
 
     const [credentials,setCredentials]=useState({name:"",
-email:"",password:""});
+email:"",password:"",confirmpassword:""});
 
 let navigate=useNavigate();
 
@@ -25,7 +25,7 @@ let navigate=useNavigate();
         const json=await response.json()
         console.log(json);
 
-       
+    
 localStorage.setItem('token',json.authToken);
 navigate('/');
 
@@ -38,7 +38,9 @@ navigate('/');
     }
 
     return (
-        <div className="container my-3">
+        <div className="container mt-3">
+
+            <h1>Create an Account !</h1>
             <form onSubmit={handleSubmit}>
 
             <div className="mb-3">

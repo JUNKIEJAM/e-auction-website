@@ -39,7 +39,8 @@ navigate('/');
 
 
   return (
-    <div class="container my-3">
+    <div className="container mt-3">
+      <h1>Log In to Bid !</h1>
       <form onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="email" className="form-label">Email address</label>
