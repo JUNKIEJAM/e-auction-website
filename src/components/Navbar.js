@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
 
   return (
-    <div>
+    <div >
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">Navbar</a>
@@ -28,7 +28,7 @@ function Navbar() {
 
       <Link className="btn btn-primary mx-2" to="/login" role="button">Log In</Link>
 
-      <Link className="btn btn-primary mx-2" to="/" role="button">Sign Up</Link>
+      <Link className="btn btn-primary mx-2" to="/signup" role="button">Sign Up</Link>
 
       </form>
     </div>

@@ -39,7 +39,7 @@ navigate('/');
 
 
   return (
-    <div>
+    <div class="container my-3">
       <form onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="email" className="form-label">Email address</label>
