@@ -26,7 +26,7 @@ function Navbar() {
      
       <form class="d-flex ml-auto">
 
-      <Link className="btn btn-primary mx-2" to="/" role="button">Log In</Link>
+      <Link className="btn btn-primary mx-2" to="/login" role="button">Log In</Link>
 
       <Link className="btn btn-primary mx-2" to="/" role="button">Sign Up</Link>
 
