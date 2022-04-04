@@ -38,7 +38,7 @@ navigate('/');
     }
 
     return (
-        <div className="container mt-3">
+        <div className="container my-3">
 
             <h1>Create an Account !</h1>
             <form onSubmit={handleSubmit}>
