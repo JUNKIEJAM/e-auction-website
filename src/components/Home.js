@@ -14,10 +14,14 @@ export const Home = () => {
             width:'100%',
             height:'500px',
            };
+
+           const btnstyle = {
+           width: '33.33%'
+           };
   
   return (
 
-   <div className="container my-3">
+   <>
    <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">
@@ -39,7 +43,13 @@ export const Home = () => {
     <span className="visually-hidden">Next</span>
   </button>
 </div>
-</div>
+
+<br></br>
+
+<button type="button" class="btn btn-danger" style={btnstyle} >Upcoming Auctions</button>
+<button type="button" class="btn btn-info" style={btnstyle}>Sell a Product</button>
+<button type="button" class="btn btn-success" style={btnstyle} >Results of Previous Auction</button>
+</>
   
   )
 }
