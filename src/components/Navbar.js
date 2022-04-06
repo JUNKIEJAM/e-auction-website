@@ -26,7 +26,7 @@ let navigate=useNavigate();
           <a className="nav-link active" aria-current="page" href="/about">About</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Contact</a>
+          <a className="nav-link active" aria-current="page" href="/contact">Contact</a>
         </li>
       </ul>
      
