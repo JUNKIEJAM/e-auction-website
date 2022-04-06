@@ -38,6 +38,7 @@ navigate('/');
     }
 
     return (
+      
         <div className="container my-3">
 
             <h1>Create an Account !</h1>
@@ -68,6 +69,8 @@ navigate('/');
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
         </div>
+
+    
     )
 }
 

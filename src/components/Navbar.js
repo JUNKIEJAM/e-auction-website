@@ -38,6 +38,9 @@ let navigate=useNavigate();
 
       </form>:<form className="d-flex ml-auto">
 
+     
+          <a className="nav-link active" aria-current="page" href="/">User Profile</a>
+        
 <Link className="btn btn-primary mx-2" to="/login" role="button" onClick={handleLogout}>Log Out</Link>
 
 </form>}
