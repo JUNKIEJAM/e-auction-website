@@ -3,31 +3,30 @@ const router=express.Router();
 const fetchuser=require('../middleware/fetchuser');
 const Product=require('../models/Product')
 const {body,validationResult}=require('express-validator');
+const multer=require('multer');
+
+
+
 
 //ROUTE 1: get all the notes using: GET :"api/auth/getuser":LOGIN REQUIRED
 
-router.get('/fetchallproduct',fetchuser,async(req,res)=>{
+router.get('/',fetchuser,async(req,res)=>{
 
-    try{
-        const product=await Product.find({user:req.user.id})
-        res.json(product)
-    }
-
-    catch(error){
-console.error(error.mesaage);
-res.status(500).send("Internal Server Error")
-    }
-
-    
-})
+   Product.find()
+   .then((article)=>res.json(article))
+   .catch((err)=>res.status(400).json(`Error: ${err}`));
+ 
+});
 
 //ROUTE 2:add a new note using: POST :"api/auth/addnote":LOGIN REQUIRED
 
 router.post('/addproduct', fetchuser, [
-    body('title', 'Enter a valid title').isLength({ min: 3 }),
+    body('title', 'Enter a valid name').isLength({ min: 3 }),
+    body('price', 'Enter a valid price'),
     body('description', 'Description must be atleast 5 characters').isLength({ min: 5 }),], async (req, res) => {
+        
         try {
-            const { title, description, tag } = req.body;
+            const { title,price,description, tag } = req.body;
 
             // If there are errors, return Bad request and the errors
             const errors = validationResult(req);
@@ -35,7 +34,7 @@ router.post('/addproduct', fetchuser, [
         //        return res.status(400).json({ errors: errors.array() });
           //  }
             const product = new Product({
-                title, description, tag, user: req.user.id
+                title, price,description, tag, user: req.user.id
             })
             const savedProduct = await product.save()
 
