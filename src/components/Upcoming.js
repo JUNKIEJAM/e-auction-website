@@ -6,10 +6,13 @@ function Upcoming() {
     const [posts,setPosts]=useState([]);
     useEffect(()=>{
       axios
-      .get('http://localhost:5000/articles/')
+      .get('/articles/')
       .then(res=>setPosts(res.data))
       .catch(error=>console.log(error))
     })
+
+    const [article,setArticle]=useState([]);
+    
   
     const mystyle={
       width: 500
@@ -23,12 +26,20 @@ function Upcoming() {
    <br></br>
   
        {posts.map((article,key)=>(
-         <div className="container">
+     
+     <div className="container" key={key}>
+     
        <div className="card">
-         <div className="card-body" style={mystyle}>
-         <h5 class="card-title">{article.title}</h5>
-         <p class="card-text">{article.article}</p>
-         <span>{article.authorname}</span>
+      
+       <img src={`/uploads/${article.articleImage}`}  style={{width:"40%"}} className="card-img-top" alt="..." />
+
+         <div className="card-body">
+        
+         <h5 class="card-title"><h1>{article.title}</h1></h5>
+         <p class="card-text">Subject: {article.article}</p>
+      
+         <span>Uploaded by: {article.authorname}</span>
+         <p class="card-text">Price: {article.price}</p>
          <br></br>
          <br></br>
          <a href="/" class="btn btn-primary">Give your Bid</a>

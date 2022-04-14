@@ -58,7 +58,7 @@ export const Home = () => {
 <br></br>
 
 <Link type="button" className="btn btn-danger" style={btnstyle} to='/upcoming'
-target='_blank' >Upcoming Auctions</Link>
+target='_blank' >Availaible Products </Link>
 <Link type="button" className="btn btn-info" style={btnstyle} to='/upload' target='_blank'>Sell a Product</Link>
 <Link type="button" className="btn btn-success" style={btnstyle} to='/results' target='_blank'>Results of Previous Auction</Link>
 

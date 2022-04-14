@@ -1,42 +1,30 @@
 const express=require('express');
 const router=express.Router();
-const Articles=require('../models/articles');
+const Files=require('../models/file');
 const { body, validationResult } = require('express-validator');
-const multer=require('multer');
+const formidable=require('formidable')
 
-const storage=multer.diskStorage({
-    destination:(req,file,callback)=>{
-    callback(null,"./public/uploads/");
-},
-filename:(req,file,callback)=>{
-    callback(null,file.originalname)
-}
-})
-
-const upload=multer({storage:storage});
 //request to get all articles
 
 router.get('/',(req,res)=>{
 
-    Articles.find()
-    .then(article=>res.json(article))
+    Files.find()
+    .then(file=>res.json(file))
     
     .catch(err=>res.status(400).json(`Error: ${err}`))
 })
 
 //request to  add new articles
-router.post('/add',upload.single("articleImage"),(req,res)=>{
-    const newArticle=new Articles({
+router.post('/add',(req,res)=>{
+    const newFile=new Files({
         title:req.body.title,
         article:req.body.article,
         price:req.body.price,
-        
-        authorname:req.body.authorname,
-        articleImage:req.file.originalname
+        authorname:req.body.authorname
      
     })
 
-    newArticle.save().then(()=>
+    newFile.save().then(()=>
         res.json("The new Article posted Successfully")
     )
     .catch(err=>res.status(400).json(`Error:${err}`));
@@ -44,27 +32,25 @@ router.post('/add',upload.single("articleImage"),(req,res)=>{
 
 // request to find the article by ID
 router.get('/:id',(req,res)=>{
-    Articles.findById(req.params.id)
-    .then((article=>{
-        res.json(article)
+    Files.findById(req.params.id)
+    .then((file=>{
+        res.json(file)
     }))
     .catch(err=>res.status(400).json(`Error:${err}`))
 })
 
 /// request to find the article by ID and update
-router.put('/update/:id',upload.single("articleName"),(req,res)=>{
+router.put('/update/:id',(req,res)=>{
 
-    Articles.findById(req.params.id)
-    .then(article=>{
+    Files.findById(req.params.id)
+    .then(file=>{
       
-            article.title=req.body.title;
-            article.article=req.body.article;
-            article.authorname=req.body.authorname;
-            article.price=req.body.price;
-            article.articleImage=req.file.originalname;
-            
+        file.title=req.body.title;
+        file.article=req.body.article;
+        file.authorname=req.body.authorname;
+            file.price=req.body.price;
 
-            article
+            file
             .save()
             .then(()=>{
                 res.json("The Article is Updated successfully")
@@ -78,10 +64,12 @@ router.put('/update/:id',upload.single("articleName"),(req,res)=>{
 /// request to find the article by ID and delete
 router.delete('/delete/:id',(req,res)=>{
 
-    Articles.findByIdAndDelete(req.params.id)
+    Files.findByIdAndDelete(req.params.id)
     .then(res.json("The Article has been Deleted successfully"))
    
     .catch(err=>res.status(400).json(`Error:${err}`))
 });
+
+
 
 module.exports=router;

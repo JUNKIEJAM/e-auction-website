@@ -7,24 +7,41 @@ const Upload=()=> {
   const [title,setTitle]=useState('');
   const [article,setArticle]=useState('');
   const [authorname,setAuthorName]=useState('');
+  const [price,setPrice]=useState('');
+  const [fileName,setFileName]=useState('');
 
- /* const changeOnClick=(e)=>{
-e.preventDefault();
+  const onChangeFile=e=>{
+    setFileName(e.target.files[0]);
+  }
 
-const articles={
+const changeOnClick=(e)=>{
+
+  e.preventDefault();
+
+  const formData=new FormData();
+
+  formData.append('title',title);
+  formData.append('article',article);
+  formData.append('authorname',authorname);
+  formData.append('price',price);
+  formData.append('articleImage',fileName);
+
+
+  /*const articles={
   title,
   article,
-  authorname
-}
+  authorname,
+  price
+}*/
 
 axios
-.post("/upload/add",articles)
+.post("http://localhost:5000/articles/add",formData)
 .then(res=>console.log(res.data))
 .catch(err=>{
-  console.log(err);
+  console.log(err.response.data);
 })
   }
-*/
+/*
 let navigate=useNavigate();
 
 const changeOnClick=async (e)=>{
@@ -40,11 +57,13 @@ const changeOnClick=async (e)=>{
             },
             body: JSON.stringify({ title,
               article,
-              authorname})
+              authorname,
+            price,
+          })
           });
 
           navigate('/upcoming');
-}
+}*/
 
   return (
 
@@ -55,7 +74,7 @@ const changeOnClick=async (e)=>{
  <br></br>
 
 <div className="container mx-3">
- <form onSubmit={changeOnClick} /*encType="multipart/form-data"*/>
+ <form onSubmit={changeOnClick} encType="multipart/form-data">
   <div className="mb-3">
     <label htmlFor="authorname">Your Name: </label>
     <input type="text" onChange={e=> setAuthorName(e.target.value)} className="form-control" placeholder="Enter your Name" />
@@ -73,6 +92,18 @@ const changeOnClick=async (e)=>{
     <textarea onChange={e=> setArticle(e.target.value)} className="form-control" rows="3" placeholder="Describe the Product" />
   </div>
   
+  <div className="mb-3">
+    <label htmlFor="article">Price</label>
+    <input type="number" onChange={e=> setPrice(e.target.value)} className="form-control" rows="3" placeholder="Base Price" />
+  </div>
+
+
+  <div className="mb-3">
+    <label htmlFor="file">Choose File</label>
+    <input type="file" filename="articleImage" className="form-control-file" onChange={onChangeFile}  rows="3" placeholder="Base Price" />
+  </div>
+
+  
   <button type="submit" className="btn btn-primary">Jump into the Auction</button>
 </form>
 </div>
@@ -86,5 +117,3 @@ const changeOnClick=async (e)=>{
 }
 
 export default Upload
-
-

@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
-const articleSchema=new Schema({
+const fileSchema=new Schema({
   
 title:{
     type:String,
@@ -18,9 +18,9 @@ price:{
     required:true   
 },
 
-articleImage:{
-    type:String,
-    required:true
+photo:{
+type:Buffer,
+contentType:String
 },
 
 authorname:{
@@ -31,4 +31,4 @@ authorname:{
 })
 
 
-module.exports=mongoose.model('Articles',articleSchema)
+module.exports=mongoose.model('Files',fileSchema)
