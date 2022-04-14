@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Signup = () => {
 
+  
     const [credentials,setCredentials]=useState({name:"",
 email:"",password:"",confirmpassword:""});
 
@@ -38,10 +40,12 @@ navigate('/');
     }
 
     return (
-      
-        <div className="container my-3">
+
+      <SignBox>
+       
 
             <h1>Create an Account !</h1>
+            <div className="container my-4">
             <form onSubmit={handleSubmit}>
 
             <div className="mb-3">
@@ -69,9 +73,26 @@ navigate('/');
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
         </div>
+        </SignBox>
 
-    
     )
 }
 
 export default Signup
+
+const SignBox=styled.div`
+
+margin: 3rem auto;
+padding: 4 rem;
+width: 31.25rem;
+
+.btn-primary{
+  margin-top: 2rem;
+  
+  border: none;
+  &:hover {
+    background: green;
+  }
+}
+
+`;

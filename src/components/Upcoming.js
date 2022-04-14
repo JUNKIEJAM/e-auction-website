@@ -1,9 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
+import styled from 'styled-components';
+
+
 
 function Upcoming() {
    
     const [posts,setPosts]=useState([]);
+
+
+
     useEffect(()=>{
       axios
       .get('/articles/')
@@ -11,13 +17,19 @@ function Upcoming() {
       .catch(error=>console.log(error))
     })
 
-    const [article,setArticle]=useState([]);
+
+    const cardstyle={
+width: '100%',
+height: 350
     
-  
-    const mystyle={
-      width: 500
+    
     }
+
     return (
+
+  
+   
+      <CardContainer>
   
      <div className="container my-3">
     <h1>Upcoming Auctions </h1>
@@ -31,28 +43,72 @@ function Upcoming() {
      
        <div className="card">
       
-       <img src={`/uploads/${article.articleImage}`}  style={{width:"40%"}} className="card-img-top" alt="..." />
-
-         <div className="card-body">
-        
-         <h5 class="card-title"><h1>{article.title}</h1></h5>
-         <p class="card-text">Subject: {article.article}</p>
+       <img src={`/uploads/${article.articleImage}`} style={cardstyle} className="card-img-top" alt={article.title} />
       
-         <span>Uploaded by: {article.authorname}</span>
-         <p class="card-text">Price: {article.price}</p>
+       <div class="card-body">
+     <h5 class="card-title"><h1>{article.title}</h1></h5>
+         <p class="card-text">Description: {article.article}</p>
+      
+         <span>Uploaded by: <b>{article.authorname}</b></span>
+         <p class="card-text"> Base Price: <b>{article.price}</b> </p>
          <br></br>
          <br></br>
-         <a href="/" class="btn btn-primary">Give your Bid</a>
-    </div>
+
+         <div className="container">            
+         <a href='/upcoming'  className="btn btn-primary" style={{float: "right"}}>Give your Bid</a>
+          
+        </div>
+
+        
+         </div>
   </div>
   <br></br>
   <br></br>
   </div>
   
        ))}
+  
      </div>
+
    
-    )
+     </CardContainer>
+
+
+    )    
+
+  
 }
 
+
 export default Upcoming
+
+
+const CardContainer=styled.div`
+
+margin: 3rem auto;
+
+
+h1{
+  font-weight:900;
+  color: blue;
+}
+
+.btn{
+  
+}
+
+.btn-primary{
+  margin-top: 2rem;
+  margin-right: 0;
+
+  border: none;
+  &:hover {
+    background: green;
+  }
+}
+
+.card-text{
+  font-weight:900; 
+}
+
+`;

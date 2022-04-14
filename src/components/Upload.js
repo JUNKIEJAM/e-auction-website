@@ -1,8 +1,13 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
 
 const Upload=()=> {
+
+  let navigate=useNavigate();
+
 
   const [title,setTitle]=useState('');
   const [article,setArticle]=useState('');
@@ -40,10 +45,13 @@ axios
 .catch(err=>{
   console.log(err.response.data);
 })
-  }
-/*
-let navigate=useNavigate();
 
+navigate('/upcoming');
+  }
+
+
+
+/*
 const changeOnClick=async (e)=>{
 
   e.preventDefault();
@@ -61,14 +69,15 @@ const changeOnClick=async (e)=>{
             price,
           })
           });
-
-          navigate('/upcoming');
 }*/
+        
+
 
   return (
 
+    <UploadContainer>
    <div className="container my-3">
-  <h1>Upload your Article here </h1>
+  <h1>Upload your Article</h1>
  
  <br></br>
  <br></br>
@@ -112,8 +121,33 @@ const changeOnClick=async (e)=>{
 
    
    </div>
+
+  
+   </UploadContainer>
  
   )
 }
 
 export default Upload
+
+const UploadContainer=styled.div`
+
+margin: 3rem auto;
+padding: 4 rem;
+width: 31.25rem;
+h1{
+  font-weight:900;
+  color: blue;
+}
+
+.btn-primary{
+  margin-top: 2rem;
+  
+  border: none;
+  &:hover {
+    background: green;
+  }
+}
+`;
+
+

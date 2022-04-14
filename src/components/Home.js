@@ -1,9 +1,14 @@
 import React from 'react';
-import test from './assets/test.jpeg'
+
 import auction1 from './assets/auction.png'
-import { Link } from 'react-router-dom';
+import auction2 from './assets/auction2.jfif'
+import bid from './assets/bid.png'
+import { Link} from 'react-router-dom';
+
+
 
 export const Home = () => {
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous" />
@@ -15,8 +20,15 @@ export const Home = () => {
             height:'500px',
            };
 
+           const mystyle2 = {
+        
+            width:'50%',
+            height:'500px',
+            padding: 2
+           };
+
            const btnstyle = {
-           width: '33.33%'
+           width: '100%'
            };
 
            const picstyle = {
@@ -26,46 +38,53 @@ export const Home = () => {
             height:'10rem',
            };
 
-
+         
   return (
 
+    
    <>
-   <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-    <img src={auction1} className="d-block w-100" style={mystyle} alt="..." />
-    </div>
-    <div className="carousel-item">
-    <img src={test} className="d-block w-100" alt="..." />
-    </div>
-    <div className="carousel-item">
-      <img src={test} className="d-block w-100" alt="..." />
-    </div>
+
+   <img src={auction1} className="d-block w-100" style={mystyle} alt="..." />
+
+
+<br></br>
+<br></br>
+<br></br>
+
+<div className="container">
+  <div className="row">
+
+   
+<div className="card" style={mystyle2}>
+  <img src={auction2} class="card-img-top" alt="..." />
+  <div className="card-body">
+    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet excepturi pariatur repudiandae ut perferendis est.</p>
+    <Link type="button" className="btn btn-danger" style={btnstyle} to='/upcoming'
+target='_blank' >Jump to Auction </Link>
+  </div>
   </div>
 
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
 
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
 
+<div className="card" style={mystyle2}>
+  <img src={bid} class="card-img-top" alt="..." />
+  <div className="card-body">
+    <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus officia fuga fugiat debitis.</p>
+
+   
+    <Link type="button" className="btn btn-success" style={btnstyle} to='/upload'
+target='_blank' >Put for Auction</Link>
+
+  
+  </div>
 </div>
 
-<br></br>
-
-<Link type="button" className="btn btn-danger" style={btnstyle} to='/upcoming'
-target='_blank' >Availaible Products </Link>
-<Link type="button" className="btn btn-info" style={btnstyle} to='/upload' target='_blank'>Sell a Product</Link>
-<Link type="button" className="btn btn-success" style={btnstyle} to='/results' target='_blank'>Results of Previous Auction</Link>
-
+</div>
+</div>
 <br></br>
 <br></br>
-<br></br>
-
+  
+    
 <footer className="bg-dark text-center text-white">
   
   <div className="container p-4">
@@ -241,3 +260,4 @@ target='_blank' >Availaible Products </Link>
   
   )
 }
+
