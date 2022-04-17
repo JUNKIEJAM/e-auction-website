@@ -1,14 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
 import styled from 'styled-components';
+import { Link} from 'react-router-dom';
 
 
 
 function Upcoming() {
    
     const [posts,setPosts]=useState([]);
-
-
 
     useEffect(()=>{
       axios
@@ -27,8 +26,6 @@ height: 350
 
     return (
 
-  
-   
       <CardContainer>
   
      <div className="container my-3">
@@ -46,16 +43,22 @@ height: 350
        <img src={`/uploads/${article.articleImage}`} style={cardstyle} className="card-img-top" alt={article.title} />
       
        <div class="card-body">
+         <Link to={{
+           pathname:`/upcoming/${article._id}`
+         }}>
+
      <h5 class="card-title"><h1>{article.title}</h1></h5>
+        
+         </Link>
+
          <p class="card-text">Description: {article.article}</p>
-      
          <span>Uploaded by: <b>{article.authorname}</b></span>
          <p class="card-text"> Base Price: <b>{article.price}</b> </p>
          <br></br>
          <br></br>
 
          <div className="container">            
-         <a href='/upcoming'  className="btn btn-primary" style={{float: "right"}}>Give your Bid</a>
+         <Link to={`/submitbid/${article._id}`}  className="btn btn-primary" style={{float: "right"}}>Give your Bid</Link>
           
         </div>
 

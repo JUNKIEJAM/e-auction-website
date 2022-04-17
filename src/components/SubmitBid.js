@@ -1,12 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 
-const Upload=()=> {
 
-  let navigate=useNavigate();
+const SubmitBid=(props)=> {
+
 
 
   const [title,setTitle]=useState('');
@@ -33,18 +33,35 @@ const changeOnClick=(e)=>{
 
 
 axios
-.post("http://localhost:5000/articles/add",formData)
+.put(`articles/update/${props.match.params.id}`,formData)
 .then(res=>console.log(res.data))
 .catch(err=>{
   console.log(err.response.data);
 })
+}
 
-navigate('/upcoming');
-  }
+useEffect(()=>{
+
+  axios
+.get(`/articles/${props.match.params.id}`)
+.then((res)=>[
+  setTitle(res.data.title),
+  setArticle(res.data.article),
+  setAuthorName(res.data.authorname),
+  setPrice(res.data.price),
+  setFileName(res.data.articleImage),
+
+])
+.catch(err=>{
+  console.log(err.response.data);
+})
+
+},[`${props.match.params.id}`]);
+
 
   return (
 
-    <UploadContainer>
+    <SubmitBidContainer>
    <div className="container my-3">
   <h1>Upload your Article</h1>
  
@@ -92,14 +109,14 @@ navigate('/upcoming');
    </div>
 
   
-   </UploadContainer>
+   </SubmitBidContainer>
  
   )
 }
 
-export default Upload
+export default SubmitBid
 
-const UploadContainer=styled.div`
+const SubmitBidContainer=styled.div`
 
 margin: 3rem auto;
 padding: 4 rem;

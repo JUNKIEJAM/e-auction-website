@@ -52,7 +52,7 @@ router.get('/:id',(req,res)=>{
 })
 
 /// request to find the article by ID and update
-router.put('/update/:id',upload.single("articleName"),(req,res)=>{
+router.put('/update/:id',upload.single("articleImage"),(req,res)=>{
 
     Articles.findById(req.params.id)
     .then(article=>{
