@@ -13,6 +13,7 @@ import Results from './components/Results';
 import Contact from './components/Contact';
 import React from 'react';
 import AddArticle from './components/AddArticle';
+import UserProfile from './components/UserProfile';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
 
     <Route path="/results" element={<Results />} />
     <Route path="/addarticle" element={<AddArticle />} />
+    <Route path="/userprofile" element={<UserProfile />} />
     </Routes>
     </>
   </Router>  

@@ -3,7 +3,10 @@ import React from 'react';
 import auction1 from './assets/auction.png'
 import auction2 from './assets/auction2.jfif'
 import bid from './assets/bid.png'
+import read from './assets/read.png'
+import write from './assets/write.png'
 import { Link} from 'react-router-dom';
+import articlebg from './assets/articlebg.jpg'
 
 
 
@@ -44,7 +47,7 @@ export const Home = () => {
     
    <>
 
-   <img src={auction1} className="d-block w-100" style={mystyle} alt="..." />
+   <img src={articlebg} className="d-block w-100" style={mystyle} alt="..." />
 
 
 <br></br>
@@ -56,24 +59,24 @@ export const Home = () => {
 
    
 <div className="card" style={mystyle2}>
-  <img src={auction2} class="card-img-top" alt="..." />
+  <img src={read} class="card-img-top" alt="..." />
   <div className="card-body">
     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet excepturi pariatur repudiandae ut perferendis est.</p>
     <Link type="button" className="btn btn-danger" style={btnstyle} to='/upcoming'
-target='_blank' >Jump to Auction </Link>
+target='_blank' >Read an Article </Link>
   </div>
   </div>
 
 
 
 <div className="card" style={mystyle2}>
-  <img src={bid} class="card-img-top" alt="..." />
+  <img src={write} class="card-img-top" alt="..." />
   <div className="card-body">
     <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus officia fuga fugiat debitis.</p>
 
    
     <Link type="button" className="btn btn-success" style={btnstyle} to='/upload'
-target='_blank' >Put for Auction</Link>
+target='_blank' >Write an Article</Link>
 
   
   </div>

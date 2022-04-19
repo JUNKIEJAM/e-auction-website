@@ -101,11 +101,11 @@ const changeOnClick=async (e)=>{
     <textarea onChange={e=> setArticle(e.target.value)} className="form-control" rows="3" placeholder="Describe the Product" />
   </div>
   
+  
   <div className="mb-3">
     <label htmlFor="article">Price</label>
     <input type="number" onChange={e=> setPrice(e.target.value)} className="form-control" rows="3" placeholder="Base Price" />
   </div>
-
 
   <div className="mb-3">
     <label htmlFor="file">Choose File</label>
@@ -113,7 +113,7 @@ const changeOnClick=async (e)=>{
   </div>
 
   
-  <button type="submit" className="btn btn-primary">Jump into the Auction</button>
+  <button type="submit" className="btn btn-primary">Upload</button>
 </form>
 </div>
 <br></br>

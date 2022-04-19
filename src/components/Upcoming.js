@@ -32,7 +32,7 @@ height: 350
       <CardContainer>
   
      <div className="container my-3">
-    <h1>Upcoming Auctions </h1>
+    <h1>Hope you have a good Read ! </h1>
    
    <br></br>
    <br></br>
@@ -90,7 +90,7 @@ margin: 3rem auto;
 
 h1{
   font-weight:900;
-  color: blue;
+  color: black;
 }
 
 .btn{
