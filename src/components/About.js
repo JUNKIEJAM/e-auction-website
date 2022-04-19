@@ -45,6 +45,11 @@ function About() {
 </div>
 
 
+    
+<br></br>
+    <br></br>
+    <br></br>
+    <br></br>
 
 
 
@@ -62,7 +67,7 @@ function About() {
           </ul>
         </div>
       </div>
-    
+
       <div className="col-xl-5 col-sm-6 mb-5">
         <div className="bg-white rounded shadow-sm py-30 px-30"><img src={divya} alt="" width="300" className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
           <h5 className="mb-0">Divya Agarwal</h5><span className="small text-uppercase text-muted"><b>2019UIT3156</b></span>
@@ -86,3 +91,4 @@ function About() {
 }
 
 export default About
+

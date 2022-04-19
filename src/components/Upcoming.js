@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 
-function Upcoming() {
+function Upcoming(props) {
    
     const [posts,setPosts]=useState([]);
 
@@ -39,7 +39,7 @@ height: 350
   
        {posts.map((article,key)=>(
      
-     <div className="container" key={key}>
+     <div className="container"  key={key}>
      
        <div className="card">
       
@@ -47,15 +47,15 @@ height: 350
       
        <div class="card-body">
      <h5 class="card-title"><h1>{article.title}</h1></h5>
-         <p class="card-text">Description: {article.article}</p>
+         <p class="card-text">{article.article}</p>
       
          <span>Uploaded by: <b>{article.authorname}</b></span>
-         <p class="card-text"> Base Price: <b>{article.price}</b> </p>
+         
          <br></br>
          <br></br>
 
          <div className="container">            
-         <a href='/upcoming'  className="btn btn-primary" style={{float: "right"}}>Give your Bid</a>
+         
           
         </div>
 
@@ -108,7 +108,8 @@ h1{
 }
 
 .card-text{
-  font-weight:900; 
+ 
 }
 
 `;
+

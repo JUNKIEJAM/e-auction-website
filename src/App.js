@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
+
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 
 import { Home } from './components/Home';
@@ -11,19 +12,41 @@ import Upcoming from './components/Upcoming';
 import Upload from './components/Upload';
 import Results from './components/Results';
 import Contact from './components/Contact';
-import React from 'react';
+import React,{useState} from 'react';
 import AddArticle from './components/AddArticle';
 import UserProfile from './components/UserProfile';
 
 function App() {
 
+  const [mode, setMode]=useState('light')
+  const [alert,setAlert]=useState(null)
+ 
+  const toggleMode = () => {
+    if (mode === 'light') {
+        setMode('dark');
+        document.body.style.backgroundColor = '#042743';
+    /*    showAlert("Dark Mode has been Enabled","success")
+        
+        setInterval(()=>{
+          document.title='TextManipulator - Dark Mode'
+        },2000)*/
+    }
+    else {
+        setMode('light');
+        document.body.style.backgroundColor = 'white';
+       
+  /*      setInterval(()=>{
+          document.title='TextManipulator - Light Mode'
+        },2000)*/
+    }
+};
 
 
   return (
     <>
       
 <Router>
-  <Navbar />
+  <Navbar mode={mode} toggleMode={toggleMode} />
 
   <>
     <Routes>
@@ -32,9 +55,9 @@ function App() {
     <Route path="/contact" element={<Contact />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<Signup />} />
-    <Route path="/upcoming" element={<Upcoming />} />
+    <Route path="/upcoming" element={<Upcoming mode={mode}/>} />
     <Route path="/test" element={<Testimonials />} />
-    <Route path="/upload" element={<Upload />} />
+    <Route path="/upload" element={<Upload mode={mode} />} />
 
     <Route path="/results" element={<Results />} />
     <Route path="/addarticle" element={<AddArticle />} />

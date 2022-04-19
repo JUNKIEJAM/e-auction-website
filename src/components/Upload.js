@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-const Upload=()=> {
+const Upload=(props)=> {
 
   let navigate=useNavigate();
 
@@ -76,7 +76,7 @@ const changeOnClick=async (e)=>{
   return (
 
     <UploadContainer>
-   <div className="container my-3">
+   <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}> 
   <h1>Upload your Article</h1>
  
  <br></br>

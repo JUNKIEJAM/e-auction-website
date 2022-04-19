@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link ,useNavigate} from "react-router-dom";
+import PropTypes from 'prop-types';
 
-function Navbar() {
+function Navbar(props) {
   
 let navigate=useNavigate();
 
@@ -11,7 +12,7 @@ let navigate=useNavigate();
   }
   return (
     <div >
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
     <a className="navbar-brand" href="/">Read-Write</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,12 +44,26 @@ let navigate=useNavigate();
         
 <Link className="btn btn-primary mx-2" to="/login" role="button" onClick={handleLogout}>Log Out</Link>
 
+<div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+  <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+  
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+  </div>
+
 </form>}
     </div>
   </div>
 </nav>
       </div>
     )
+}
+
+Navbar.propTypes={title: PropTypes.string}
+
+Navbar.defaultProps={
+
+    title:'Set Title here',
+    aboutText:'About Text here'
 }
 
 export default Navbar
