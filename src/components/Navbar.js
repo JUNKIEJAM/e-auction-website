@@ -36,6 +36,12 @@ let navigate=useNavigate();
       <Link className="btn btn-primary mx-2" to="/login" role="button">Log In</Link>
 
       <Link className="btn btn-primary mx-2" to="/signup" role="button">Sign Up</Link>
+      <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+  <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+  
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+  </div>
+
 
       </form>:<form className="d-flex ml-auto">
 

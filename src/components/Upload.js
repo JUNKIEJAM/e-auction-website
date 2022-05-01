@@ -92,13 +92,13 @@ const changeOnClick=async (e)=>{
 
   <div className="mb-3">
     <label htmlFor="title">Title: </label>
-    <input type="text"  onChange={e=> setTitle(e.target.value)} className="form-control" placeholder="Name of the Product" />
+    <input type="text"  onChange={e=> setTitle(e.target.value)} className="form-control" placeholder="Title" />
     
   </div>
 
   <div className="mb-3">
     <label htmlFor="article">Description</label>
-    <textarea onChange={e=> setArticle(e.target.value)} className="form-control" rows="3" placeholder="Describe the Product" />
+    <textarea onChange={e=> setArticle(e.target.value)} className="form-control" rows="3" placeholder="Express Your Self" />
   </div>
   
   

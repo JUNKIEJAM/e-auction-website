@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Signup = () => {
+const Signup = (props) => {
 
   
     const [credentials,setCredentials]=useState({name:"",
@@ -41,7 +41,7 @@ navigate('/');
 
     return (
 
-      <SignBox>
+      <SignBox style={{color: props.mode==='dark'?'white':'black'}}>
        
 
             <h1>Create an Account !</h1>

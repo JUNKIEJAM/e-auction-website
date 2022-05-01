@@ -4,8 +4,9 @@ import divya from './assets/divya.jpg';
 
 function Contact() {
   return (
-    <div>
+    <div className="container my-4">
      <div className="row text-center">
+
  
  <div className="card-columns mx-auto d-flex justify-content-center col-12" >
    <div className="col-xl-5 col-sm-6 mb-5 marign:3px">

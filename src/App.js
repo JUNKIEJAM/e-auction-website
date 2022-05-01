@@ -51,10 +51,10 @@ function App() {
   <>
     <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/login" element={<Login />} />
-    <Route path="/signup" element={<Signup />} />
+    <Route path="/about" element={<About mode={mode} />} />
+    <Route path="/contact" element={<Contact mode={mode} />} />
+    <Route path="/login" element={<Login mode={mode} />} />
+    <Route path="/signup" element={<Signup mode={mode} />} />
     <Route path="/upcoming" element={<Upcoming mode={mode}/>} />
     <Route path="/test" element={<Testimonials />} />
     <Route path="/upload" element={<Upload mode={mode} />} />

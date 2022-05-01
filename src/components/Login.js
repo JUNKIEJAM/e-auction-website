@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
 
  
 const [credentials,setCredentials]=useState({email:"",
@@ -59,7 +59,7 @@ navigate('/');
   )*/
 
   return(
-    <div className="container my-3">
+    <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
     <div className="sidenav">
     <div className="login-main-text">
        <h2>Application Login Page</h2>
