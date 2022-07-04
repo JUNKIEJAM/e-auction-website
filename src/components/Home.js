@@ -47,7 +47,7 @@ export const Home = () => {
     
    <>
 
-   <img src={articlebg} className="d-block w-100" style={mystyle} alt="..." />
+   <img src={auction1} className="d-block w-100" style={mystyle} alt="..." />
 
 
 <br></br>
@@ -59,24 +59,24 @@ export const Home = () => {
 
    
 <div className="card" style={mystyle2}>
-  <img src={read} class="card-img-top" alt="..." />
+  <img src={bid} class="card-img-top" alt="..." />
   <div className="card-body">
     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet excepturi pariatur repudiandae ut perferendis est.</p>
     <Link type="button" className="btn btn-danger" style={btnstyle} to='/upcoming'
-target='_blank' >Read an Article </Link>
+target='_blank' >Jump into Auction </Link>
   </div>
   </div>
 
 
 
 <div className="card" style={mystyle2}>
-  <img src={write} class="card-img-top" alt="..." />
+  <img src={auction2} class="card-img-top" alt="..." />
   <div className="card-body">
     <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus officia fuga fugiat debitis.</p>
 
    
     <Link type="button" className="btn btn-success" style={btnstyle} to='/upload'
-target='_blank' >Write an Article</Link>
+target='_blank' >Put up for Bidding</Link>
 
   
   </div>

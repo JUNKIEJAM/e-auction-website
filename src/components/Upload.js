@@ -77,7 +77,7 @@ const changeOnClick=async (e)=>{
 
     <UploadContainer>
    <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}> 
-  <h1>Upload your Article</h1>
+  <h1>Float your Product for Bidding</h1>
  
  <br></br>
  <br></br>
@@ -98,7 +98,7 @@ const changeOnClick=async (e)=>{
 
   <div className="mb-3">
     <label htmlFor="article">Description</label>
-    <textarea onChange={e=> setArticle(e.target.value)} className="form-control" rows="3" placeholder="Express Your Self" />
+    <textarea onChange={e=> setArticle(e.target.value)} className="form-control" rows="3" placeholder="Describe the Product " />
   </div>
   
   
@@ -108,7 +108,7 @@ const changeOnClick=async (e)=>{
   </div>
 
   <div className="mb-3">
-    <label htmlFor="file">Choose File</label>
+    <label htmlFor="file">Upload Image</label>
     <input type="file" filename="articleImage" className="form-control-file" onChange={onChangeFile}  rows="3" placeholder="Base Price" />
   </div>
 

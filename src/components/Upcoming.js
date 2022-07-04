@@ -32,7 +32,7 @@ height: 350
       <CardContainer>
   
      <div className="container my-3">
-    <h1>Hope you have a good Read ! </h1>
+    <h1>Bid for a Product </h1>
    
    <br></br>
    <br></br>
