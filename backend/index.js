@@ -1,26 +1,30 @@
-//const connectToMongo=require('./db')
+// const connectDB=require('./db')
 const express = require('express')
 const mongoose=require('mongoose');
 var cors=require('cors');
-// connectToMongo();
+
 const bodyParser=require('body-parser')
 const app = express()
 const port = process.env.PORT||5000;
 require('dotenv').config();
+
 const path = require('path')
 app.use(cors())
 app.use(express.json())
 
-const uri=process.env.ATLAS_URI;
+const connectDB=require('./db')
+connectDB();
 
-mongoose.connect(uri,{
-  useNewUrlParser:true,
-  useUnifiedTopology:true
-})
+// const uri=process.env.ATLAS_URI;
 
-const connection=mongoose.connection;
-connection.once("open",()=>
-console.log('MongoDB connection established'));
+// mongoose.connect(uri,{
+//   useNewUrlParser:true,
+//   useUnifiedTopology:true
+// })
+
+// const connection=mongoose.connection;
+// connection.once("open",()=>
+// console.log('MongoDB connection established'));
 
 app.use(express.static(path.join(__dirname, '../build')))
 app.get('*', (req, res) => {
